@@ -326,7 +326,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
             child = new Container();
           }
           if (_size == null) {
-            return child ?? new Container();
+            return child;
           }
 
           double position;
@@ -499,14 +499,14 @@ class _TransformerPageViewState extends State<TransformerPageView> {
     }
 
     if (!_pageController!.loop) {
-      if (currentIndex! >= _pageController!.itemCount!) {
+      if (currentIndex >= _pageController!.itemCount!) {
         currentIndex = 0;
       } else if (currentIndex < 0) {
         currentIndex = _pageController!.itemCount! - 1;
       }
     }
 
-    return currentIndex!;
+    return currentIndex;
   }
 
   void onChangeNotifier() {
@@ -529,7 +529,7 @@ class _TransformerPageViewState extends State<TransformerPageView> {
         return;
     }
     if (widget.controller!.animation) {
-      _pageController!.animateToPage(index!, duration: widget.duration, curve: widget.curve ?? Curves.ease).whenComplete(widget.controller!.complete);
+      _pageController!.animateToPage(index!, duration: widget.duration, curve: widget.curve).whenComplete(widget.controller!.complete);
     } else {
       _pageController!.jumpToPage(index!);
       widget.controller!.complete();
